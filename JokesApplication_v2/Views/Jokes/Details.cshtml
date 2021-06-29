@@ -1,0 +1,30 @@
+﻿@model JokesApplication_v2.Models.Jokes
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Jokes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.JokeQues)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.JokeQues)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.JokeAns)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.JokeAns)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

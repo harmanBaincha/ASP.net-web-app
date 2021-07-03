@@ -8,8 +8,8 @@ namespace JokesApplication_v2.Models
     public class Jokes
     {
         public int Id { get; set; }
-        public int JokeQues { get; set; }
-        public int JokeAns { get; set; }
+        public string JokeQues { get; set; }
+        public string JokeAns { get; set; }
 
         public Jokes()
         {

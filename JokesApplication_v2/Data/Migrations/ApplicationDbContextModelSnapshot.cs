@@ -25,9 +25,9 @@ namespace JokesApplication_v2.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("JokeAns");
+                    b.Property<string>("JokeAns");
 
-                    b.Property<int>("JokeQues");
+                    b.Property<string>("JokeQues");
 
                     b.HasKey("Id");
 

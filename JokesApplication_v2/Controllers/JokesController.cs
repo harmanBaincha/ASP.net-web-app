@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using JokesApplication_v2.Data;
 using JokesApplication_v2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace JokesApplication_v2.Controllers
 {
@@ -59,6 +60,7 @@ namespace JokesApplication_v2.Controllers
         }
 
         // GET: Jokes/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -69,6 +71,7 @@ namespace JokesApplication_v2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("Id,JokeQues,JokeAns")] Jokes jokes)
         {
             if (ModelState.IsValid)
@@ -81,6 +84,7 @@ namespace JokesApplication_v2.Controllers
         }
 
         // GET: Jokes/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -101,6 +105,7 @@ namespace JokesApplication_v2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,JokeQues,JokeAns")] Jokes jokes)
         {
             if (id != jokes.Id)
@@ -132,6 +137,7 @@ namespace JokesApplication_v2.Controllers
         }
 
         // GET: Jokes/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -152,6 +158,7 @@ namespace JokesApplication_v2.Controllers
         // POST: Jokes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var jokes = await _context.Jokes.FindAsync(id);
